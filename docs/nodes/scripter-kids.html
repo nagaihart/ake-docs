@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scripterとは(小学校高学年・中学生向け)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+      background: #0b0b0b;
+      color: #f4f4f4;
+      line-height: 1.7;
+    }
+    section {
+      min-height: 100vh;
+      padding: 8vh 8vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid #222;
+    }
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1.1;
+      margin: 0 0 2rem;
+    }
+    h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      margin: 0 0 2rem;
+    }
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      margin: 0 0 1rem;
+      color: #7fd1ff;
+    }
+    p, li {
+      font-size: clamp(1.3rem, 2.5vw, 2.1rem);
+      max-width: 980px;
+    }
+    .big {
+      font-size: clamp(2.2rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .flow {
+      font-size: clamp(1.5rem, 3.6vw, 2.8rem);
+      font-weight: 700;
+      word-break: keep-all;
+    }
+    pre {
+      background: #151515;
+      color: #e8e8e8;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+      overflow-x: auto;
+      border: 1px solid #333;
+    }
+    code {
+      font-family: Menlo, Consolas, monospace;
+    }
+    .muted {
+      color: #aaa;
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
+    }
+    .card {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 1.5rem;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-weight: 700;
+    }
+    .card .desc {
+      display: block;
+      margin-top: .4rem;
+      font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+      font-weight: 400;
+      color: #aaa;
+    }
+    .quest {
+      background: #12181c;
+      border: 1px solid #2a3a42;
+      border-left: 6px solid #7fd1ff;
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin: 1rem 0;
+      max-width: 900px;
+    }
+    .quest h3 { margin-bottom: .6rem; }
+    .quest p { margin: .4rem 0; }
+    .badge {
+      display: inline-block;
+      background: #7fd1ff;
+      color: #0b0b0b;
+      font-weight: 800;
+      padding: .2rem .8rem;
+      border-radius: 999px;
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      margin-bottom: .8rem;
+    }
+    .check {
+      color: #6cff9e;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <h1>Scripterとは</h1>
+  <p class="big">自分の力で、やり方を作れる人のこと。</p>
+</section>
+
+<section>
+  <h2>ボタンは、中身を隠す</h2>
+  <p class="big">ボタンをポチッと押すだけだと、中で何が起きたか分からない。</p>
+  <p>アプリは便利。でも、中でどう動いたかは見せてくれない。うまくいかなかったとき、
+     なぜダメだったか自分では分からない。魔法みたいに見えるけど、魔法じゃない。</p>
+</section>
+
+<section>
+  <h2>人は、自分で解いたときに伸びる</h2>
+  <p class="big">誰かにやってもらったことは、自分の力にならない。</p>
+  <p>難しい場面に出会う。仕組みを見つける。自分でやり方を組み立てる。
+     そこで初めて、力がつく。</p>
+</section>
+
+<section>
+  <h2>Scripterの考え方</h2>
+  <p class="flow">問題 → 構造 → 解法 → 実行 → 結果 → 修正</p>
+  <p class="muted">難しいこと(問題)を見つけたら → 仕組みを調べて(構造) →
+    やり方を考えて(解法) → 実際にやってみて(実行) → どうなったか見て(結果) →
+    ダメなら直す(修正)。これをぐるぐる回すのがScripter。</p>
+</section>
+
+<section>
+  <h2>コンピュータの中身</h2>
+  <p>コンピュータの中は、全部「ファイル」でできている。</p>
+  <ul>
+    <li>ファイル = 1つの情報のかたまり(文章、写真、プログラムぜんぶ)</li>
+    <li>ディレクトリ(フォルダ) = ファイルを入れておく箱</li>
+    <li>パス = その箱がどこにあるか、を書いた道じるべ</li>
+  </ul>
+</section>
+
+<section>
+  <h2>ファイルシステム</h2>
+  <pre><code>/
+├── home
+│   └── user
+│       └── a.txt</code></pre>
+  <p>どんなファイルも、この木のような形の中の、どこかにある。迷子にはならない。</p>
+</section>
+
+<section>
+  <h2>ぜんぶ「文字」でできている</h2>
+  <p class="big">Everything is text.</p>
+  <ul>
+    <li>命令(コマンド)も文字</li>
+    <li>設定も文字</li>
+    <li>記録も文字</li>
+  </ul>
+</section>
+
+<section>
+  <h2>なぜ文字がいいのか</h2>
+  <ul>
+    <li>あとから直せる</li>
+    <li>そのまま保存できる</li>
+    <li>前と今を見くらべられる</li>
+    <li>いつ何をやったか、記録が残る</li>
+    <li>コンピュータに自動でやらせられる</li>
+  </ul>
+</section>
+
+<section>
+  <h2>コマンドとは</h2>
+  <p class="big">コンピュータへの、短い命令文。</p>
+  <pre><code>コマンド + 引数 + 対象</code></pre>
+  <p class="muted">例: 「掃除して(コマンド) → ていねいに(引数) → 部屋を(対象)」と同じ形。</p>
+</section>
+
+<section>
+  <h2>最初に覚える8個</h2>
+  <div class="grid">
+    <div class="card">pwd<span class="desc">今どこにいるか見る</span></div>
+    <div class="card">ls<span class="desc">中身を見る</span></div>
+    <div class="card">cd<span class="desc">移動する</span></div>
+    <div class="card">mkdir<span class="desc">フォルダを作る</span></div>
+    <div class="card">touch<span class="desc">空のファイルを作る</span></div>
+    <div class="card">mv<span class="desc">動かす・名前を変える</span></div>
+    <div class="card">cp<span class="desc">コピーする</span></div>
+    <div class="card">rm<span class="desc">消す</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>やる場所</h2>
+  <p>操作は「ターミナル」という画面でやる。</p>
+  <p>Mac、Windows(WSL)、Linux ── 見た目は違っても、中の考え方はぜんぶ同じ。</p>
+  <p class="big">ターミナルを開こう。</p>
+</section>
+
+<section>
+  <span class="badge">クエスト 1</span>
+  <h2>フォルダを作って、入る</h2>
+  <div class="quest">
+    <h3>やること</h3>
+    <pre><code>mkdir scripter
+cd scripter
+touch a.txt
+ls</code></pre>
+    <p>結果に <code>a.txt</code> が出てきたら成功。<span class="check">✓ クリア</span></p>
+    <p class="muted">mkdirで箱を作り、cdでその箱に入り、touchで空のファイルを1個置いた。
+      lsで「今この箱に何があるか」を確認した。</p>
+  </div>
+</section>
+
+<section>
+  <span class="badge">クエスト 2</span>
+  <h2>ファイルに文字を書いて、読む</h2>
+  <div class="quest">
+    <h3>やること</h3>
+    <pre><code>echo "こんにちは" > memo.txt
+cat memo.txt</code></pre>
+    <p>画面に「こんにちは」が出てきたら成功。<span class="check">✓ クリア</span></p>
+    <p class="muted">echoは文字を出す命令。「&gt;」はその文字をファイルにしまう記号。
+      catはファイルの中身をそのまま見せる命令。</p>
+  </div>
+</section>
+
+<section>
+  <span class="badge">クエスト 3</span>
+  <h2>コピーして、名前を変えて、消す</h2>
+  <div class="quest">
+    <h3>やること</h3>
+    <pre><code>cp memo.txt memo_copy.txt
+mv memo_copy.txt memo_old.txt
+rm memo_old.txt
+ls</code></pre>
+    <p><code>memo_old.txt</code> が消えて、<code>memo.txt</code> だけ残っていたら成功。
+      <span class="check">✓ クリア</span></p>
+    <p class="muted">cpは複製、mvは移動(名前を変えるのも実は「移動」の一種)、
+      rmは削除。消す命令だけは取り消せないので、ここだけは慎重に。</p>
+  </div>
+</section>
+
+<section>
+  <span class="badge">クエスト 4</span>
+  <h2>前と今を見くらべる</h2>
+  <div class="quest">
+    <h3>やること</h3>
+    <pre><code>echo "1行目" > kiroku.txt
+echo "2行目" >> kiroku.txt
+cat kiroku.txt</code></pre>
+    <p>「1行目」と「2行目」が両方出てきたら成功。<span class="check">✓ クリア</span></p>
+    <p class="muted">「&gt;」は上書き、「&gt;&gt;」は付け足し。この「積み重ね」の考え方が、
+      あとで出てくる「記録を残す(履歴)」の入り口になる。</p>
+  </div>
+</section>
+
+<section>
+  <h2>結果</h2>
+  <p class="big">ここまでやったこと、それが「解法」だ。</p>
+  <p>難しそうに見えた「コンピュータを使う」が、ただの積み木だったと分かったはず。</p>
+</section>
+
+<section>
+  <h2>もう一度、流れを見る</h2>
+  <p class="flow">問題 → 構造 → 解法 → 実行 → 結果 → 修正</p>
+  <p>さっきの4つのクエストは、ぜんぶこの流れそのものだった。</p>
+</section>
+
+<section>
+  <h2>Unix</h2>
+  <p>Unixは、この考え方(隠さない・文字で残す・積み木にする)を50年前から
+    支えてきた仕組み。</p>
+  <p class="flow">Unix → Linux → cloud</p>
+</section>
+
+<section>
+  <h2>AIとの付き合い方</h2>
+  <p class="big">AIは道具。決めるのは、いつも自分。</p>
+  <p>コマンドを忘れたとき、エラーの意味が分からないとき、AIは助けてくれる。
+    でも「何を作るか」「何を解くか」を決めるのは人間。AIに丸投げしたら、
+    さいしょの「ボタンをポチッと押すだけ」に逆戻りしてしまう。</p>
+</section>
+
+<section>
+  <h2>Scripterは職業じゃない</h2>
+  <p class="big">自転車や料理と同じ、生きるための技術。</p>
+  <p>プログラマーになりたい人だけの話じゃない。仕組みを知りたい人、
+    自分の手で試したい人なら、誰でもScripter。</p>
+</section>
+
+<section>
+  <h2>レベル</h2>
+  <div class="grid">
+    <div class="card">Junior<span class="desc">最初の一歩を、自分の力で作れる</span></div>
+    <div class="card">Power<span class="desc">道具と道具をつなげて使える</span></div>
+    <div class="card">System<span class="desc">全体の仕組みを設計できる</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>次のレベルに進むには</h2>
+  <p class="big">身近な3人のScripterが「できてる」と認めたら、次へ進める。</p>
+  <p>家族でも、先生でも、友だちでもいい。3人がうなずいたら、それは本物の力。</p>
+</section>
+
+<section>
+  <h2>結論</h2>
+  <p class="big">Scripterとは、自分の力で、やり方を作れる人のこと。</p>
+</section>
+
+</body>
+</html>
