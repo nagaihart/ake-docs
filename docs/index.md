@@ -20,3 +20,4 @@
 - [連鎖の切断](./nodes/breaking-the-chain.md)
 - [連鎖の観測](./nodes/chain-observation.md)
 - [Scripterとは(子供向け)](./nodes/scripter-kids.html)
+- [競艇は国と自治体がグルの合法収奪システムである](./nodes/kyotei-extraction-structure.md)
